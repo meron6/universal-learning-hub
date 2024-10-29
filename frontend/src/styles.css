@@ -1,20 +1,104 @@
-/* frontend/src/styles.css */
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .app {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-  }
-  
-  .lesson-container {
-    display: flex;
-    flex-wrap: wrap; /* Allows for responsive design */
-    justify-content: space-around; /* Distributes space around items */
-  }  
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
+  line-height: 1.6;
+}
+
+a {
+  color: #3498db;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #2980b9;
+}
+
+/* Navbar */
+.navbar {
+  background-color: #3498db;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar a {
+  color: #fff;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+}
+
+.navbar a:hover {
+  background-color: #2980b9;
+  border-radius: 5px;
+}
+
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 1rem;
+}
+
+/* Lesson Card */
+.lesson-card {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.lesson-card:hover {
+  transform: scale(1.02);
+}
+
+.lesson-card img {
+  max-width: 100%;
+  border-radius: 5px;
+}
+
+.lesson-card h3 {
+  color: #3498db;
+  margin: 1rem 0 0.5rem;
+}
+
+.lesson-card p {
+  margin-bottom: 0.5rem;
+}
+
+/* Button */
+.btn {
+  display: inline-block;
+  background-color: #3498db;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.3s;
+}
+
+.btn:hover {
+  background-color: #2980b9;
+}
+
+.btn-secondary {
+  background-color: #ddd;
+  color: #333;
+}
+
+.btn-secondary:hover {
+  background-color: #bbb;
+}
