@@ -1,0 +1,20 @@
+/* frontend/src/styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .app {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .lesson-container {
+    display: flex;
+    flex-wrap: wrap; /* Allows for responsive design */
+    justify-content: space-around; /* Distributes space around items */
+  }  
