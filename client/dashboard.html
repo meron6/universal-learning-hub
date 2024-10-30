@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Universal Learning Hub</title>
+    <link rel="stylesheet" href="assets/style.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background: #4A90E2;
+            color: white;
+            padding: 10px 0;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+        nav h1 {
+            margin: 0;
+        }
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin-left: 20px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        .welcome-section {
+            text-align: center;
+            padding: 40px;
+            background: linear-gradient(to right, #4A90E2, #6AB0FF);
+            color: white;
+        }
+        .welcome-section h2 {
+            font-size: 2.5em;
+        }
+        .courses-section {
+            padding: 20px;
+        }
+        .course-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .course-card {
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            padding: 15px;
+            text-align: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+        }
+        .course-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #4A90E2;
+            color: white;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>Universal Learning Hub</h1>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="course.html">Courses</a></li>
+                <li><a href="logout.html" id="logout">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="welcome-section">
+            <h2>Welcome Back!</h2>
+            <p>Your learning journey continues here. Explore new topics and expand your knowledge!</p>
+        </section>
+
+        <section class="courses-section">
+            <h2>Available Courses</h2>
+            <div class="course-grid">
+                <div class="course-card" onclick="location.href='course.html?id=1'">
+                    <h3>Introduction to HTML</h3>
+                    <p>Learn the basics of web development with HTML.</p>
+                </div>
+                <div class="course-card" onclick="location.href='course.html?id=2'">
+                    <h3>CSS Fundamentals</h3>
+                    <p>Discover how to style your web pages with CSS.</p>
+                </div>
+                <div class="course-card" onclick="location.href='course.html?id=3'">
+                    <h3>JavaScript Basics</h3>
+                    <p>Understand the fundamentals of programming with JavaScript.</p>
+                </div>
+                <div class="course-card" onclick="location.href='course.html?id=4'">
+                    <h3>Responsive Web Design</h3>
+                    <p>Learn to create websites that work on all devices.</p>
+                </div>
+                <div class="course-card" onclick="location.href='course.html?id=5'">
+                    <h3>Python for Beginners</h3>
+                    <p>Start your journey in programming with Python.</p>
+                </div>
+                <div class="course-card" onclick="location.href='course.html?id=6'">
+                    <h3>Data Science 101</h3>
+                    <p>An introduction to data science concepts and techniques.</p>
+                </div>
+                <div class="course-card" onclick="location.href='course.html?id=7'">
+                    <h3>Introduction to SQL</h3>
+                    <p>Learn how to manage databases with SQL.</p>
+                </div>
+                <div class="course-card" onclick="location.href='course.html?id=8'">
+                    <h3>Digital Marketing Essentials</h3>
+                    <p>Understand the basics of digital marketing.</p>
+                </div>
+                <div class="course-card" onclick="location.href='course.html?id=9'">
+                    <h3>Graphic Design Basics</h3>
+                    <p>Learn the principles of graphic design.</p>
+                </div>
+                <div class="course-card" onclick="location.href='course.html?id=10'">
+                    <h3>Introduction to Machine Learning</h3>
+                    <p>Get started with machine learning concepts and algorithms.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2024 Universal Learning Hub. All rights reserved.</p>
+    </footer>
+
+    <script src="assets/script.js"></script>
+</body>
+</html>

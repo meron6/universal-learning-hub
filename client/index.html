@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Universal Learning Hub</title>
+    <link rel="stylesheet" href="assets/style.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background: #4A90E2;
+            color: white;
+            padding: 10px 0;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+        nav h1 {
+            margin: 0;
+        }
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin-left: 20px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        .hero-section {
+            background: url('assets/hero-bg.jpg') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+            padding: 4rem 1rem;
+        }
+        .hero-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .hero-section p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        .start-button {
+            background-color: #FF6F61;
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .start-button:hover {
+            background-color: #FF4C4C;
+        }
+        .welcome-message {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 1rem;
+            background-color: #3c85eb70;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(9, 9, 9, 0.162);
+            text-align: center;
+            border: 2px solid #4A90E2;
+        }
+        .welcome-message h2 {
+            margin-top: 0;
+        }
+        footer {
+            background: #4A90E2;
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>Universal Learning Hub</h1>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="register.html">Register</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="welcome">
+        <section class="hero-section">
+            <h2>Welcome to the Universal Learning Hub!</h2>
+            <p>Your gateway to endless knowledge and fun learning experiences!</p>
+            <button class="start-button" onclick="location.href='register.html'">Get Started</button>
+        </section>
+
+        <section class="welcome-message">
+            <h2>Welcome Students!</h2>
+            <p>We are thrilled to have you here at the Universal Learning Hub. Our mission is to provide you with the best learning resources and a supportive community to help you achieve your educational goals. Dive into our courses, participate in discussions, and make the most of your learning journey. Let's embark on this exciting adventure together!</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2024 Universal Learning Hub. All rights reserved.</p>
+    </footer>
+
+    <script src="assets/script.js"></script>
+</body>
+</html>
