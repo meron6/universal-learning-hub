@@ -63,10 +63,11 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            transition: background 0.3s;
+            transition: background 0.3s, transform 0.3s;
         }
         .form-container button:hover {
             background: #FF4C4C;
+            transform: scale(1.05);
         }
         .form-container p {
             margin-top: 1rem;
@@ -74,6 +75,10 @@
         .form-container a {
             color: #4A90E2;
             text-decoration: none;
+        }
+        #error-message {
+            color: red;
+            margin-top: 10px;
         }
     </style>
 </head>
@@ -89,9 +94,10 @@
         <div class="form-container">
             <h2>Login</h2>
             <form id="login-form">
-                <input type="email" id="email" placeholder="Email" required>
-                <input type="password" id="password" placeholder="Password" required>
+                <input type="email" id="email" placeholder="Email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" aria-label="Email">
+                <input type="password" id="password" placeholder="Password" required aria-label="Password">
                 <button type="submit">Login</button>
+                <div id="error-message"></div>
                 <p>Don't have an account? <a href="register.html">Register here</a></p>
             </form>
         </div>
@@ -102,6 +108,7 @@
             e.preventDefault();
             const email = document.getElementById('email').value;
             const password = document.getElementById('password').value;
+            const errorMessageDiv = document.getElementById('error-message');
 
             const response = await fetch('http://localhost:5000/api/auth/login', {
                 method: 'POST',
@@ -116,7 +123,7 @@
                 localStorage.setItem('token', data.token);
                 window.location.href = 'dashboard.html';
             } else {
-                alert(data.message);
+                errorMessageDiv.textContent = data.message; 
             }
         });
     </script>

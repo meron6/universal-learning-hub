@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/style.css">
+    <title>Quiz</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background: #4A90E2;
+            color: white;
+            padding: 10px 0;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+        nav h1 {
+            margin: 0;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .quiz-container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        .quiz-question {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+        .quiz-options {
+            list-style: none;
+            padding: 0;
+        }
+        .quiz-options li {
+            margin-bottom: 10px;
+        }
+        .submit-quiz-button {
+            padding: 15px 30px;
+            font-size: 1.2em;
+            background: #FF6F61;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .submit-quiz-button:hover {
+            background: #FF4C4C;
+        }
+        .score {
+            font-size: 1.5em;
+            margin-top: 20px;
+            color: #4A90E2;
+            display: none; /* Initially hidden */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>Universal Learning Hub</h1>
+            <a href="index.html">Home</a>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="logout.html">Logout</a>
+        </nav>
+    </header>
+    <div class="container">
+        <div id="quiz-container" class="quiz-container">
+            <h2 id="quiz-title">Quiz</h2>
+            <div id="quiz-content"></div>
+            <button id="submit-quiz-button" class="submit-quiz-button">Submit Quiz</button>
+            <div id="quiz-score" class="score"></div> <!-- Removed inline style -->
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const courseId = urlParams.get('id');
+
+            const quizzes = {
+                // Quiz data as provided
+                // Example quiz data structure
+                "courseId1": {
+                    courseTitle: "Course 1",
+                    questions: [
+                        {
+                            text: "What is 2 + 2?",
+                            options: ["3", "4", "5"],
+                            correctAnswer: "4"
+                        },
+                        {
+                            text: "What is the capital of France?",
+                            options: ["Berlin", "Madrid", "Paris"],
+                            correctAnswer: "Paris"
+                        }
+                    ]
+                }
+                // Add more quiz data as needed
+            };
+
+            const quiz = quizzes[courseId];
+
+            if (quiz) {
+                document.getElementById('quiz-title').textContent = `Quiz for ${quiz.courseTitle}`;
+                const quizContent = document.getElementById('quiz-content');
+                quiz.questions.forEach((question, index) => {
+                    const questionElement = document.createElement('div');
+                    questionElement.classList.add('quiz-question');
+                    questionElement.innerHTML = `<p>${index + 1}. ${question.text}</p>`;
+                    const optionsList = document.createElement('ul');
+                    optionsList.classList.add('quiz-options');
+                    question.options.forEach(option => {
+                        const optionItem = document.createElement('li');
+                        optionItem.innerHTML = `<label><input type="radio" name="question${index}" value="${option}"> ${option}</label>`;
+                        optionsList.appendChild(optionItem);
+                    });
+                    questionElement.appendChild(optionsList);
+                    quizContent.appendChild(questionElement);
+                });
+
+                document.getElementById('submit-quiz-button').addEventListener('click', () => {
+                    let score = 0;
+                    quiz.questions.forEach((question, index) => {
+                        const selectedOption = document.querySelector(`input[name="question${index}"]:checked`);
+                        if (selectedOption && selectedOption.value === question.correctAnswer) {
+                            score++;
+                        }
+                    });
+
+                    const quizScore = document.getElementById('quiz-score');
+                    quizScore.textContent = `Your score is ${score} out of ${quiz.questions.length}.`;
+                    quizScore.style.display = 'block';
+                });
+            } else {
+                document.getElementById('quiz-container').innerHTML = '<p>Quiz not found.</p>';
+            }
+        });
+    </script>
+</body>
+</html>

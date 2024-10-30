@@ -84,34 +84,67 @@
         </div>
     </div>
 
-    <script src="assets/script.js"></script>
     <script>
-        const urlParams = new URLSearchParams(window.location.search);
-        const courseId = urlParams.get('id');
+        document.addEventListener('DOMContentLoaded', async () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const courseId = urlParams.get('id');
 
-        const courses = [
-            { id: '1', title: 'Introduction to HTML', description: 'Learn the basics of web development with HTML.' },
-            { id: '2', title: 'CSS Fundamentals', description: 'Style your web pages using CSS.' },
-            { id: '3', title: 'JavaScript Basics', description: 'Get started with programming using JavaScript.' },
-            { id: '4', title: 'React.js Essentials', description: 'Build interactive user interfaces with React.' },
-            { id: '5', title: 'Node.js for Beginners', description: 'Learn backend development with Node.js.' },
-            { id: '6', title: 'Responsive Web Design', description: 'Create mobile-friendly websites.' },
-            { id: '7', title: 'Introduction to Python', description: 'Learn programming with Python.' },
-            { id: '8', title: 'Data Science Basics', description: 'An introduction to data analysis and visualization.' },
-            { id: '9', title: 'Machine Learning 101', description: 'Discover the fundamentals of machine learning.' },
-            { id: '10', title: 'Web Development Bootcamp', description: 'A comprehensive course on full-stack development.' }
-        ];
+            const courses = {
+                '1': {
+                    title: 'Introduction to HTML',
+                    description: 'Learn the basics of web development with HTML.'
+                },
+                '2': {
+                    title: 'CSS Fundamentals',
+                    description: 'Style your web pages using CSS.'
+                },
+                '3': {
+                    title: 'JavaScript Basics',
+                    description: 'Get started with programming using JavaScript.'
+                },
+                '4': {
+                    title: 'React.js Essentials',
+                    description: 'Build interactive user interfaces with React.'
+                },
+                '5': {
+                    title: 'Node.js for Beginners',
+                    description: 'Learn backend development with Node.js.'
+                },
+                '6': {
+                    title: 'Responsive Web Design',
+                    description: 'Create mobile-friendly websites.'
+                },
+                '7': {
+                    title: 'Introduction to Python',
+                    description: 'Learn programming with Python.'
+                },
+                '8': {
+                    title: 'Data Science Basics',
+                    description: 'An introduction to data analysis and visualization.'
+                },
+                '9': {
+                    title: 'Machine Learning 101',
+                    description: 'Discover the fundamentals of machine learning.'
+                },
+                '10': {
+                    title: 'Web Development Bootcamp',
+                    description: 'A comprehensive course on full-stack development.'
+                }
+            };
 
-        const course = courses.find(c => c.id === courseId);
+            const course = courses[courseId];
 
-        if (course) {
-            document.getElementById('course-title').textContent = course.title;
-            document.getElementById('course-description').textContent = course.description;
-        }
+            if (course) {
+                document.getElementById('course-title').textContent = course.title;
+                document.getElementById('course-description').textContent = course.description;
 
-        const startQuizButton = document.querySelector('.start-quiz-button');
-        startQuizButton.addEventListener('click', () => {
-            window.location.href = `quiz.html?id=${courseId}`;
+                const startQuizButton = document.querySelector('.start-quiz-button');
+                startQuizButton.addEventListener('click', () => {
+                    window.location.href = `quiz.html?id=${courseId}`;
+                });
+            } else {
+                alert('Course not found');
+            }
         });
     </script>
 </body>
